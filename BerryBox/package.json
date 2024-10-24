@@ -1,5 +1,5 @@
 {
-  "name": "berry-box",
+  "name": "angular-src",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:BerryBox": "node dist/berry-box/server/server.mjs"
+    "serve:ssr:angular_src": "node dist/angular_src/server/server.mjs"
   },
   "private": true,
   "dependencies": {
