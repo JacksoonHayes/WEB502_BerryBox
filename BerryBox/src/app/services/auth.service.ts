@@ -61,13 +61,6 @@ export class AuthService {
     return this.http.put('http://localhost:3000/users/update', { newPassword }, { headers })
       .pipe(map((res: any) => res));
   }
-
-  redeemToken() {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post('http://localhost:3000/users/redeem-token', {}, { headers })
-      .pipe(map((res: any) => res));
-  }
   
   isLoggedIn() {
     let token: string | null = null;

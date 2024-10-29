@@ -41,25 +41,6 @@ export class ProfileComponent implements OnInit {
     }
   }
   
-
-  redeemToken() {
-    this.authService.redeemToken().subscribe(
-      (res: any) => {
-        this.user.vouchers = res.vouchers;  // Update the vouchers count
-        alert('Token redeemed successfully!');
-      },
-      (err) => {
-        if (err.status === 401) {
-          // Handle unauthorized error, maybe redirect to login or show a message
-          alert('Session expired or unauthorized. Please log in again.');
-          this.router.navigate(['/login']);
-        } else {
-          alert('Failed to redeem token: ' + err.error.message);
-        }
-      }
-    );
-  }
-  
   ngOnInit() {
     const profileObservable = this.authService.getProfile();
   
