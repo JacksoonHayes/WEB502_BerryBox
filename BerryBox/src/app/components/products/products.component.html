@@ -3,7 +3,7 @@
         <img [src]="product.image" alt="{{product.name}}" class="product-image"/>
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
-        <p>Price: ${{ product.price }}</p>
+        <p><strong>${{ product.price }} for {{ product.baseWeight }}</strong></p>
         <p *ngIf="product.discount">Discount: {{ product.discount }}%</p>
         <button (click)="viewProduct(product._id)">View Product</button>
     </div>

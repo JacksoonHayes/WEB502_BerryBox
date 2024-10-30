@@ -21,25 +21,6 @@ export class ProfileComponent implements OnInit {
     private router: Router
   ) {}
   
-  updateDetails() {
-    if (this.newPassword) {
-      this.authService.updatePassword(this.newPassword).subscribe(
-        (res: any) => {
-          console.log(res.message);
-          // Optionally display a success message to the user
-          alert('Password updated successfully!');
-        },
-        (err) => {
-          console.error('Error updating password:', err);
-          // Optionally display an error message to the user
-          alert('Failed to update password.');
-        }
-      );
-    } else {
-      alert('Please enter a new password.');
-    }
-  }
-  
   ngOnInit() {
     const profileObservable = this.authService.getProfile();
   
@@ -61,4 +42,22 @@ export class ProfileComponent implements OnInit {
     this.isLoggedIn = this.authService.isLoggedIn();
   }
   
+  updateDetails() {
+    if (this.newPassword) {
+      this.authService.updatePassword(this.newPassword).subscribe(
+        (res: any) => {
+          console.log(res.message);
+          // Optionally display a success message to the user
+          alert('Password updated successfully!');
+        },
+        (err) => {
+          console.error('Error updating password:', err);
+          // Optionally display an error message to the user
+          alert('Failed to update password.');
+        }
+      );
+    } else {
+      alert('Please enter a new password.');
+    }
+  }
 }
