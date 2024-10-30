@@ -11,6 +11,9 @@ const ProductSchema = mongoose.Schema({
     price: {
         type: Number
     },
+    baseWeight: {
+        type: String
+    },
     discount: {
         type: Number
     },
