@@ -2,42 +2,45 @@
     <div *ngIf="user" class="row">
         <!-- Left Column: Current User Details -->
         <div class="col-md-5">
-            <h2 class="page-header">Hello! {{ user.name }}</h2>
+            <h2 class="page-header  text-center">Hello! {{ user.name }}</h2>
             <ul class="list-group">
                 <li class="list-group-item"><strong>Email: </strong>{{ user.email }}</li>
                 <li class="list-group-item"><strong>Name: </strong>{{ user.name }}</li>
             </ul>
+                    <!-- Right Column: Update Password -->
+            <div class="update-password-container text-center" id="password-block">
+                <h4>Update Your Password:</h4>
+                <form (submit)="updateDetails()">
+                    <div class="form-group">
+                        <input type="password" id="password" [(ngModel)]="newPassword" name="password" class="form-control" placeholder="Enter new password" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-custom mt-4">Submit Changes</button>
+                    </div>
+                </form>
+            </div>
         </div>
         
-        <!-- Right Column: Update Password -->
-        <div class="col-md-4 offset-md-1">
-            <h4>Update Your Password:</h4>
-            <form (submit)="updateDetails()">
-                <div class="form-group">
-                    <input type="password" id="password" [(ngModel)]="newPassword" name="password" class="form-control" placeholder="Enter new password" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-custom mt-4">Submit Changes</button>
-                </div>
-            </form>
-        </div>
-        
-
-        <h2 class="page-header">Your Orders</h2>
-        <div *ngIf="orders.length === 0">
-            <p>You have not placed any orders yet.</p>
-        </div>
-        <div *ngIf="orders.length > 0">
-            <ul>
-                <li *ngFor="let order of orders">
-                    Order #{{ order._id }} - {{ order.createdAt | date }}
-                    <ul>
-                        <li *ngFor="let item of order.items">
-                            {{ item.quantity }}x {{ item.productId.name }} - {{ item.weight }} - ${{ item.price }}
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="col-md-6 offset-md-1">
+            <h2 class="page-header">Your Orders</h2>
+            <div *ngIf="orders.length === 0">
+                <p>You have not placed any orders yet.</p>
+            </div>
+            <div *ngIf="orders.length > 0">
+                <ul>
+                    <li *ngFor="let order of orders" id="order-block">
+                        <strong>Order ID:</strong> {{ order._id }} - <strong>Date:</strong> {{ order.orderDate | date }}
+                        <ul>
+                            <li *ngFor="let item of order.items">
+                                <strong>Product:</strong> {{ item.productId?.name }} -
+                                <strong>Quantity:</strong> {{ item.quantity }} -
+                                <strong>Weight:</strong> {{ item.weight }} -
+                                <strong>Price:</strong> ${{ item.price }}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
 
     </div>

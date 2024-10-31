@@ -73,6 +73,7 @@ export class ProfileComponent implements OnInit {
       (orders) => (this.orders = orders),
       (err) => console.error('Failed to retrieve orders:', err)
     );
+    console.log(this.orders);
   }
 
 }
