@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background: #fceffd;
+  background: #fcf1fd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 2rem; /* Adjust as needed */
@@ -55,43 +55,19 @@ h2 {
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 10px 18px;
+  font-size: 14px;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
 }
 
-.btn-clear {
-  background-color: #e74c3c;
-  color: white;
+.btn-custom {
+    background-color: rgb(80, 80, 86);
+    color: white;
 }
-
-.btn-clear:hover {
-  background-color: #c0392b;
-}
-
-.btn-checkout {
-  background-color: #2ecc71;
-  color: white;
-}
-
-.btn-checkout:hover {
-  background-color: #27ae60;
-}
-
-.btn-guest-checkout {
-  background-color: #3498db;
-  color: white;
-}
-
-.btn-guest-checkout:hover {
-  background-color: #2980b9;
-}
-
-.empty-cart {
-  text-align: center;
-  color: #666;
-  font-size: 1.1rem;
+.btn-custom:hover {
+    background-color: rgb(102, 102, 112);
 }

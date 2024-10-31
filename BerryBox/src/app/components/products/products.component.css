@@ -13,13 +13,13 @@
  }
  
  .product-card {
-    border: 1px solid #ddd;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 5px 5px 8px rgba(111, 46, 172, 0.1);
-    background: #fceffd;
-    border-radius: 8px;
- }
+   border: 1px solid #ddd;
+   padding: 1.5rem;
+   text-align: center;
+   box-shadow: 5px 5px 8px rgba(111, 46, 172, 0.1);
+   border-radius: 10px;
+   background: #f9f9f9;
+}
  
  .product-image {
     max-width: 100%;
@@ -29,15 +29,15 @@
  }
 
  .btn-custom {
-   background-color: rgb(80, 80, 86);
+   background-color: #f9eafa;
    border-radius: 10px;
-   color: white;
-   font-size: 14px;
-   padding: 5px 10px; 
+   color: rgb(74, 74, 74);
+   font-size: 12px;
+   padding: 6px 14px; 
    margin-top: 1rem;
    margin-bottom: 1rem;
+   border: 1px solid rgb(74, 74, 74);
 }
-.btn-custom:hover {
-   background-color: rgb(126, 126, 139);
-}
- 
+ .btn-custom:hover {
+   background-color: #f5d1fc;
+ }

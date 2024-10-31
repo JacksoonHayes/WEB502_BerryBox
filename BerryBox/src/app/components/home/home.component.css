@@ -1,7 +1,7 @@
 .jumbotron {
-  padding: 80px;
-  margin-top: 50px;
-}
+  margin-top: 100px;
+  margin-bottom: 150px;
+}  
 p {
   padding-bottom: 20px;
 }
@@ -11,22 +11,42 @@ p {
   margin-right: 20px;
 }
 .btn-custom {
-  background-color: rgb(130, 60, 216);
+  background-color: #f9eafa;
   border-radius: 10px;
-  color: white;
+  color: rgb(74, 74, 74);
   font-size: 14px;
   padding: 10px 20px; 
+  border: 1px solid rgb(74, 74, 74);
+}
+
+.btn-custom:hover {
+  background-color: #f5d1fc;
 }
 
 .btn-primary-custom {
-  background-color: rgb(130, 60, 216);
-  color: white;
+  background-color: #f9eafa;
   border-radius: 10px;
-  font-size: 12px;
-  padding: 10px 20px;
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  padding: 10px 20px; 
+  border: 1px solid rgb(74, 74, 74);
   margin-top: 20px;
 }
 
-.container {
-  padding-top: 60px;
+.btn-primary-custom:hover {
+  background-color: #f5d1fc;
 }
+
+.separator {
+  margin-top: 60px;
+  margin-bottom: 90px;
+}
+
+.separator-2 {
+  margin-top: 90px;
+}
+
+#bottom-row {
+  padding-top: 30px;
+}
+

@@ -8,14 +8,17 @@
   
 .btn {
     margin: 30px;
+    margin-top: 40px;
 }
 .btn-custom {
-    background-color: rgb(80, 80, 86);
+    background-color: #f9eafa;
     border-radius: 10px;
-    color: white;
+    color: rgb(74, 74, 74);
     font-size: 14px;
-    padding: 10px 18px; 
-}
-.btn-custom:hover {
-    background-color: rgb(126, 126, 139);
-}
+    padding: 10px 20px; 
+    border: 1px solid rgb(74, 74, 74);
+  }
+  
+  .btn-custom:hover {
+    background-color: #f5d1fc;
+  }

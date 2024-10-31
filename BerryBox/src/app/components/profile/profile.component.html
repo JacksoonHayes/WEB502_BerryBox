@@ -1,47 +1,59 @@
-<div class="container">
+<div class="profile-container container">
     <div *ngIf="user" class="row">
-        <!-- Left Column: Current User Details -->
-        <div class="col-md-5">
-            <h2 class="page-header  text-center">Hello! {{ user.name }}</h2>
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Email: </strong>{{ user.email }}</li>
-                <li class="list-group-item"><strong>Name: </strong>{{ user.name }}</li>
+        <!-- Left Column: User Information and Password Update -->
+        <div class="col-md-5 profile-left">
+            <h1>Hello, {{ user.name }}!</h1>
+
+            <hr class="separator">
+            
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+                <li class="list-group-item"><strong>Name:</strong> {{ user.name }}</li>
             </ul>
-                    <!-- Right Column: Update Password -->
-            <div class="update-password-container text-center" id="password-block">
-                <h4>Update Your Password:</h4>
+
+            <div class="update-password-container">
+                <h4>Update Your Password</h4>
                 <form (submit)="updateDetails()">
                     <div class="form-group">
                         <input type="password" id="password" [(ngModel)]="newPassword" name="password" class="form-control" placeholder="Enter new password" required>
                     </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-custom mt-4">Submit Changes</button>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-custom">Submit Changes</button>
                     </div>
                 </form>
             </div>
         </div>
-        
-        <div class="col-md-6 offset-md-1">
-            <h2 class="page-header">Your Orders</h2>
-            <div *ngIf="orders.length === 0">
+
+        <!-- Right Column: Order History in Table -->
+        <div class="col-md-6 offset-md-1 profile-right">
+            <h3>Your Orders</h3>
+            <div *ngIf="orders.length === 0" class="text-center">
                 <p>You have not placed any orders yet.</p>
             </div>
             <div *ngIf="orders.length > 0">
-                <ul>
-                    <li *ngFor="let order of orders" id="order-block">
-                        <strong>Order ID:</strong> {{ order._id }} - <strong>Date:</strong> {{ order.orderDate | date }}
-                        <ul>
-                            <li *ngFor="let item of order.items">
-                                <strong>Product:</strong> {{ item.productId?.name }} -
-                                <strong>Quantity:</strong> {{ item.quantity }} -
-                                <strong>Weight:</strong> {{ item.weight }} -
-                                <strong>Price:</strong> ${{ item.price }}
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td>{{ order._id }}</td>
+                            <td>{{ order.orderDate | date }}</td>
+                            <td>
+                                <ul class="order-details">
+                                    <li *ngFor="let item of order.items">
+                                        {{ item.productId?.name }} - {{ item.quantity }}x ({{ item.weight }}) - ${{ item.price }}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-
     </div>
 </div>

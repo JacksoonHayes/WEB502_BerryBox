@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class GuestCheckoutComponent implements OnInit {
   cartItems: any[] = [];
-  totalAmount: number = 0;
+  totalCostAmount: number = 0;
 
   constructor(
     private cartService: CartService,
@@ -24,7 +24,7 @@ export class GuestCheckoutComponent implements OnInit {
   }
 
   calculateTotalAmount(): void {
-    this.totalAmount = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    this.totalCostAmount = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
 
   placeOrderAsGuest(): void {
