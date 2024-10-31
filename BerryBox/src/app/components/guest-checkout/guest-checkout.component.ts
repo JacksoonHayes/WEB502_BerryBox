@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-guest-checkout',
@@ -11,11 +12,19 @@ import { CommonModule } from '@angular/common';
 })
 export class GuestCheckoutComponent implements OnInit {
   cartItems: any[] = [];
+  totalAmount: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
+  }
+
+  calculateTotalAmount(): void {
+    this.totalAmount = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
 
   placeOrderAsGuest(): void {

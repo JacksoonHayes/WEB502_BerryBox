@@ -21,9 +21,13 @@
                 </div>
             </form>
         </div>
+        
 
+        <h2 class="page-header">Your Orders</h2>
+        <div *ngIf="orders.length === 0">
+            <p>You have not placed any orders yet.</p>
+        </div>
         <div *ngIf="orders.length > 0">
-            <h4>Your Order History</h4>
             <ul>
                 <li *ngFor="let order of orders">
                     Order #{{ order._id }} - {{ order.createdAt | date }}
@@ -35,5 +39,6 @@
                 </li>
             </ul>
         </div>
+
     </div>
 </div>

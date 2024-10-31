@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
       profileObservable.subscribe(
         (profile: any) => {
           this.user = profile.user;
-          this.fetchUserOrders();
+          this.getUserOrders();
         },
         (err) => {
           console.log(err);
@@ -64,10 +64,15 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  fetchUserOrders(): void {
-    this.http.get<any[]>('/api/orders').subscribe(
+  getUserOrders(): void {
+    const headers = new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+    });
+    
+    this.http.get<any[]>('http://localhost:3000/orders', { headers }).subscribe(
       (orders) => (this.orders = orders),
-      (err) => console.error('Failed to fetch orders:', err)
+      (err) => console.error('Failed to retrieve orders:', err)
     );
   }
+
 }

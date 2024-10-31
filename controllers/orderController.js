@@ -1,18 +1,20 @@
 const Order = require('../models/orderModel');
 
-// Create a new order
 exports.createOrder = async (req, res) => {
-    const { items, orderAmount } = req.body;
+    const { items, totalCostAmount } = req.body;
     const userId = req.user.id;
 
     try {
-        const order = new Order({ userId, items, orderAmount });
+        const order = new Order({ userId, items, totalCostAmount });
         await order.save();
+        console.log("Order created:", order); // Debug logging
         res.status(201).json(order);
     } catch (error) {
+        console.error("Error creating order:", error); // Debug logging
         res.status(500).json({ message: error.message });
     }
 };
+
 
 // Get orders for a user
 exports.getUserOrders = async (req, res) => {
