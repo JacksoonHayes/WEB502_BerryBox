@@ -1,16 +1,25 @@
 const mongoose = require('mongoose');
 
-// User Schema for MongoDB
 const OrderSchema = mongoose.Schema({
-    date: {
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    items: [
+        {
+            productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+            quantity: Number,
+            weight: String,
+            purchaseOption: String,
+            price: Number
+        }
+    ],
+    orderAmount: Number,
+    orderDate: {
         type: Date,
         default: Date.now
-    },
-    items: Array(any),
-    status: {
-        type: String
     }
 });
 
-const Order = mongoose.model('Order', OrderSchema); // Create a model from the schema
-module.exports = Order;
+module.exports = mongoose.model('Order', OrderSchema);

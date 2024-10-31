@@ -21,5 +21,19 @@
                 </div>
             </form>
         </div>
+
+        <div *ngIf="orders.length > 0">
+            <h4>Your Order History</h4>
+            <ul>
+                <li *ngFor="let order of orders">
+                    Order #{{ order._id }} - {{ order.createdAt | date }}
+                    <ul>
+                        <li *ngFor="let item of order.items">
+                            {{ item.quantity }}x {{ item.productId.name }} - {{ item.weight }} - ${{ item.price }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

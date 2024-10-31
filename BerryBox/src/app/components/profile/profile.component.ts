@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -15,10 +16,12 @@ export class ProfileComponent implements OnInit {
   user: any;
   newPassword: string = "";
   isLoggedIn: boolean = false;
+  orders: any[] = [];
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
   
   ngOnInit() {
@@ -28,6 +31,7 @@ export class ProfileComponent implements OnInit {
       profileObservable.subscribe(
         (profile: any) => {
           this.user = profile.user;
+          this.fetchUserOrders();
         },
         (err) => {
           console.log(err);
@@ -37,7 +41,6 @@ export class ProfileComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
-
     // Check if the user is logged in
     this.isLoggedIn = this.authService.isLoggedIn();
   }
@@ -59,5 +62,12 @@ export class ProfileComponent implements OnInit {
     } else {
       alert('Please enter a new password.');
     }
+  }
+
+  fetchUserOrders(): void {
+    this.http.get<any[]>('/api/orders').subscribe(
+      (orders) => (this.orders = orders),
+      (err) => console.error('Failed to fetch orders:', err)
+    );
   }
 }

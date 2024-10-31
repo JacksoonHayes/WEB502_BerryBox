@@ -7,6 +7,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { GuestCheckoutComponent } from './components/guest-checkout/guest-checkout.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,5 +18,7 @@ export const routes: Routes = [
     { path: 'products', component: ProductsComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'product/:id', component: ProductDetailComponent },
-    { path: 'cart', component: CartComponent }
+    { path: 'cart', component: CartComponent },
+    { path: 'checkout', component: CheckoutComponent },
+    { path: 'guest-checkout', component: GuestCheckoutComponent }
 ];

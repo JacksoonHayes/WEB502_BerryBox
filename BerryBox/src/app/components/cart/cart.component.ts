@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
+import { CartService } from '../../services/cart.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,10 +15,26 @@ import { CommonModule } from '@angular/common';
 export class CartComponent implements OnInit {
   cartItems: any[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
+  }
+
+  proceedToCheckout(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/checkout']); // Adjust the route to your checkout page
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  checkoutAsGuest(): void {
+    this.router.navigate(['/guest-checkout']); // Adjust the route as needed for guest checkout
   }
 
   clearCart(): void {
