@@ -9,13 +9,13 @@
 .product-card:hover {
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    box-shadow: 5px 5px 8px rgba(111, 46, 172, 0.2);
+    box-shadow: 5px 5px 9px rgba(179, 97, 255, 0.2);
  }
  
  .product-card {
-   border: 1px solid #ddd;
    padding: 1.5rem;
    text-align: center;
+   border: 1px solid #ddd;
    box-shadow: 5px 5px 8px rgba(111, 46, 172, 0.1);
    border-radius: 10px;
    background: #f9f9f9;
@@ -36,7 +36,7 @@
    padding: 6px 14px; 
    margin-top: 1rem;
    margin-bottom: 1rem;
-   border: 1px solid rgb(74, 74, 74);
+   border: 1px solid #c0c0c0;
 }
  .btn-custom:hover {
    background-color: #f5d1fc;

@@ -16,6 +16,7 @@
             <input type="number" id="quantity" [(ngModel)]="quantity" min="1" />
         </div>
 
+        <!-- Weight Options -->
         <div class="weight-options">
             <p>Selected Weight: {{ selectedWeight }}</p>
             <div class="option-buttons">
@@ -28,7 +29,7 @@
             </div>
         </div>
         
-        
+        <!-- Purchase Options -->
         <div class="payment-options">
             <p>Purchase Option: {{ selectedOption }}</p>
             <div class="option-buttons">
@@ -43,9 +44,9 @@
                     Monthly Subscription
                 </button>
             </div>
-        </div>        
+        </div>
 
         <!-- Add to Cart Button -->
-        <button (click)="addToCart()" class="addToCart">Add to Cart</button>
+        <button (click)="addToCart()" class="btn btn-primary-custom">Add to Cart</button>
     </div>
 </div>
