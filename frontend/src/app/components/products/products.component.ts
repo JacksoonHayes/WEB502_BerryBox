@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
             return;
         }
 
-        this.productService.getDonations().subscribe(
+        this.productService.getProducts().subscribe(
             (data) => this.donationListings = data,
             (error) => console.error(error)
         );

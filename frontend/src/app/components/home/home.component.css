@@ -12,7 +12,7 @@ p {
   margin-right: 20px;
 }
 .btn-custom {
-  background-color: #f9faea;
+  background-color: #f7e1cc;
   border-radius: 10px;
   color: rgb(74, 74, 74);
   font-size: 14px;
@@ -21,11 +21,11 @@ p {
 }
 
 .btn-custom:hover {
-  background-color: #fcfbd1;
+  background-color: #e9cba3;
 }
 
 .btn-primary-custom {
-  background-color: #f9faea;
+  background-color: #f7e1cc;
   border-radius: 10px;
   color: rgb(74, 74, 74);
   font-size: 14px;
@@ -35,7 +35,7 @@ p {
 }
 
 .btn-primary-custom:hover {
-  background-color: #fcfbd1;
+  background-color: #e9cba3;
 }
 
 .separator {

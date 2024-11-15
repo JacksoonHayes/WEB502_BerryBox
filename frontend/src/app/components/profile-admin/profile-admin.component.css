@@ -13,7 +13,7 @@
 
 
 .btn-custom {
-    background-color: #fcfbd1;
+    background-color: #f7e1cc;
     color: rgb(74, 74, 74);
     font-size: 12px;
     padding: 6px 16px;
@@ -24,7 +24,7 @@
 }
 
 .btn-custom:hover {
-    background-color: #f9faea;
+    background-color: #e9cba3;
 }
 
 .listing-card {

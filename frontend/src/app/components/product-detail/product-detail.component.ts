@@ -39,7 +39,7 @@ export class ProductDetailComponent implements OnInit {
 
   // Fetch product data from the backend
   getProductById(id: string): void {
-      this.productService.getDonationById(id).subscribe(
+      this.productService.getProductById(id).subscribe(
           (data) => this.product = data,
           (error) => console.error(error)
       );
