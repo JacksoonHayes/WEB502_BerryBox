@@ -1,0 +1,35 @@
+.container {
+    margin-top: 50px;
+    width: 500px;
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+      width: auto;
+    } 
+}
+
+.form-group {
+    margin-top: 25px;
+}
+
+.form-control {
+  border: 1px solid #dedddd;
+}
+
+.btn {
+    margin: 30px;
+    margin-top: 40px;
+}
+.btn-custom {
+    background-color: #f9faea;
+    border-radius: 10px;
+    color: rgb(74, 74, 74);
+    font-size: 14px;
+    padding: 10px 20px; 
+    border: 1px solid #c0c0c0;
+  }
+
+  .btn-custom:hover {
+    background-color: #fcfbd1;
+  }

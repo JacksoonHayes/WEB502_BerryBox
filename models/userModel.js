@@ -16,7 +16,15 @@ const UserSchema = mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    role: {
+        type: String,
+        required: true,
+    },  
+    vouchers: {
+        type: Number,
+        default: 0
+    },
 });
 
 // Static method to find user by ID

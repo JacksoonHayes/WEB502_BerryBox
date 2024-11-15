@@ -1,25 +1,35 @@
 const Product = require('../models/productModel');
 
-// add a new product
+// Add a new donation listing
 exports.addProduct = async (req, res) => {
+    const { name, description, location, image, stock } = req.body;
+    const adminId = req.user ? req.user._id || req.user.id : null;
+
+    // Check if adminId is available
+    if (!adminId) {
+        return res.status(400).json({ message: "admin ID is required" });
+    }
+
     try {
         const product = new Product({
-            name: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            discount: req.body.discount,
-            image: req.body.image,
-            stock: req.body.stock
+            name,
+            description,
+            location,
+            image,
+            stock,
+            adminId
         });
 
         const result = await product.save();
+        console.log("Product created:", result);
         res.status(201).json(result);
     } catch (error) {
+        console.error("Error adding product:", error);
         res.status(500).json({ message: error.message });
     }
 };
 
-// update a product
+// Update a donation listing
 exports.updateProduct = async (req, res) => {
     try {
         const product = await Product.findByIdAndUpdate(
@@ -27,8 +37,7 @@ exports.updateProduct = async (req, res) => {
             {
                 name: req.body.name,
                 description: req.body.description,
-                price: req.body.price,
-                discount: req.body.discount,
+                location: req.body.location,
                 image: req.body.image,
                 stock: req.body.stock
             },
@@ -45,17 +54,17 @@ exports.updateProduct = async (req, res) => {
     }
 };
 
-// delete a product
+// Delete a donation listing
 exports.deleteProduct = async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id);
+        const product = await Product.findByIdAndDelete(req.params.id);
         if (product) {
-            await product.remove();
             res.json({ message: 'Product removed' });
         } else {
             res.status(404).json({ message: 'Product not found' });
         }
     } catch (error) {
+        console.error("Error deleting product:", error);
         res.status(500).json({ message: error.message });
     }
 };
@@ -85,6 +94,18 @@ exports.getProductById = async (req, res) => {
             res.status(404).json({ message: 'Product not found' });
         }
     } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// Fetch all products for the logged-in admin
+exports.getAdminListings = async (req, res) => {
+    const adminId = req.user._id;
+    try {
+        const products = await Product.find({ adminId });
+        res.json(products);
+    } catch (error) {
+        console.error("Error fetching admin's products:", error);
         res.status(500).json({ message: error.message });
     }
 };

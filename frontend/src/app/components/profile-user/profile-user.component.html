@@ -1,0 +1,22 @@
+<div class="user-profile">
+    <h3>Your Orders</h3>
+    <table *ngIf="orders.length > 0" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{ order._id }}</td>
+                <td>{{ order.orderDate | date }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.productId?.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="orders.length === 0">You have not placed any orders yet.</p>
+</div>

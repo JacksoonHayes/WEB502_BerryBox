@@ -1,0 +1,41 @@
+<div class="profile-container container">
+    <div class="row">
+        <!-- Left Column: Generic Profile Information -->
+        <div class="col-md-5 profile-left">
+            <h1>Hello, {{ user?.name }}!</h1>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Email:</strong> {{ user?.email }}</li>
+                <li class="list-group-item"><strong>Name:</strong> {{ user?.name }}</li>
+            </ul>
+
+            <!-- Password Update -->
+            <div class="update-password-container">
+                <h4 class="text-center">Update Your Password</h4>
+                <form (submit)="updateDetails()">
+                    <div class="form-group">
+                        <input type="password" id="password" [(ngModel)]="newPassword" name="password" class="form-control" placeholder="Enter new password" required>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-custom">Submit Changes</button>
+                    </div>
+                </form>
+            </div>
+            <ng-container *ngIf="role === 'beneficiary'">
+                <div class="vouchers-container mt-4">
+                    <h4>Available Vouchers</h4>
+                    <p>You currently have: <strong>{{ user.vouchers }}</strong></p>
+                </div>
+            </ng-container>
+        </div>
+
+        <!-- Right Column: Role-Specific Content -->
+        <div class="col-md-6 offset-md-1 profile-right">
+            <ng-container *ngIf="role === 'admin'">
+                <app-profile-admin></app-profile-admin>
+            </ng-container>
+            <ng-container *ngIf="role === 'beneficiary'">
+                <app-profile-beneficiary></app-profile-beneficiary>
+            </ng-container>
+        </div>
+    </div>
+</div>

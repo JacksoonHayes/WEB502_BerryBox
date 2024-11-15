@@ -1,0 +1,61 @@
+.jumbotron {
+  margin-top: 100px;
+  margin-bottom: 150px;
+} 
+
+p {
+  padding-bottom: 20px;
+}
+.btn {
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.btn-custom {
+  background-color: #f9faea;
+  border-radius: 10px;
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  padding: 10px 20px; 
+  border: 1px solid #c0c0c0;
+}
+
+.btn-custom:hover {
+  background-color: #fcfbd1;
+}
+
+.btn-primary-custom {
+  background-color: #f9faea;
+  border-radius: 10px;
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  padding: 10px 20px; 
+  border: 1px solid #c0c0c0;
+  margin-top: 20px;
+}
+
+.btn-primary-custom:hover {
+  background-color: #fcfbd1;
+}
+
+.separator {
+  margin-top: 60px;
+  margin-bottom: 90px;
+}
+
+.separator-2 {
+  margin-top: 90px;
+}
+
+#how-text {
+  padding-top: 30px;
+  margin-right: 20px;
+}
+
+#our-story-text {
+  margin-left: 20px;
+}
+
+#join-now {
+  padding-top: 50px;
+}

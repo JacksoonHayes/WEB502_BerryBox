@@ -11,6 +11,8 @@ const connectDB = require('./config/database');
 const userRoute = require('./routes/userRoute');
 const productRoute = require('./routes/productRoute');
 const orderRoute = require('./routes/orderRoute');
+const recipeRoute = require('./routes/recipeRoute');
+const descriptionRoute = require('./routes/descriptionRoute');
 
 // Load environment variables
 dotenv.config();
@@ -45,6 +47,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', userRoute);
 app.use('/products', productRoute);
 app.use('/orders', orderRoute);
+app.use('/recipes', recipeRoute);
+app.use('/description', descriptionRoute);
 
 // Error handling middleware for unauthorized requests
 app.use((err, req, res, next) => {

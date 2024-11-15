@@ -1,31 +1,20 @@
-# Changes made to Assessment 1 for Assessment 2 Hand-in
-Made changes to: 
-
-2. Define the user experience 
-<br> - Summary of identified requirements added 
-3. Site Content 
-5. Visual design 
-<br> - Mock ups added 
-
-Added user stories 
-CRUD Analysis changed to match user stories – shown in document 
-EPIC Backlog features changed to match user stories 
-
-
-# WEB701_Comparison
-Repo for WEB701 A2 and comparing MEAN/MERN web stacks
+E-commerce style web app for fresh berries
+Operates as a voucher system for customers to purchase berries and have them delivered to their door
+Customers get a set amount of vouchers upon registration that they can use to purchase berries
 
 ## Running the App
-1. Install dependenciess
+1. Install dependencies
 ```bash
 npm install
 ```
 
-2. Create a .env file in the root directory and add the following:
+2. Create a .env file in the root directory and add the following (replace the OPENAI_API_KEY with your own API key or contact me for the key):
 ```bash
 PORT=3001
 MONGODB_URI=mongodb+srv://dbAdmin:admin@growandgive.x8icc.mongodb.net/?retryWrites=true&w=majority&appName=growandgive
 JWT_SECRET="secret"
+OPENAI_API_KEY=
+
 ```
 
 3. To run the backend server, run the following:
@@ -33,14 +22,12 @@ JWT_SECRET="secret"
 nodemon
 ```
 
-## Either run the Angular or React application
-
-4. To run the Angular application, navigation to the /angular-src directory and run the following:
+4. Install Angular dependencies by running the following in the /frontend directory:
 ```bash
-ng serve
+npm install
 ```
 
-5. To run the React application, navigation to the /react-src directory and run the following:
+5. To run the Angular frontend, run the following in the /frontend directory:
 ```bash
-npm start
+ng serve
 ```
